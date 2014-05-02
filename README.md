@@ -13,6 +13,9 @@ Here's a quick example of how you could apply this across all uls with a class o
 
 You would then want to apply your css: 
 
-    .cols2 { width: 50%; float: left; }
+    ul.cols2 { 
+      width: 50%; 
+      float: left; 
+    }
     
 And you're done!
