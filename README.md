@@ -10,3 +10,9 @@ Here's a quick example of how you could apply this across all uls with a class o
     $(document).ready(function() {
       $('ul.cols2').columnize(2)
     });
+
+You would then want to apply your css: 
+
+    .cols2 { width: 50%; float: left; }
+    
+And you're done!
