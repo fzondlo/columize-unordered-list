@@ -7,6 +7,6 @@ Really easy to use. First include jquery. Then include jquery.columize-unordered
 
 Here's a quick example of how you could apply this across all uls with a class of "cols2"
 
-$(document).ready(function() {
-  $('ul.cols2').columnize(2)
-});
+    $(document).ready(function() {
+      $('ul.cols2').columnize(2)
+    });
