@@ -4,17 +4,10 @@
 
 (function($){
 
- jQuery.fn.columnize = function(num_columns) {
+  jQuery.fn.columnize = function(num_columns) {
 
-   var li_arr = new Array();
-
-   //Create array of all posts in lists
-   $(this).find('li').each(function(){
-       li_arr.push($(this).html());
-   })
-
-   //Break up the array into managable chunks
-   function chunk (arr, number_of_chunks) {
+    //Break up the array into managable chunks
+    function chunk (arr, number_of_chunks) {
 
      var chunks = [],
          i = 0,
@@ -32,25 +25,35 @@
      }
 
      return chunks;
-   }
+    }
 
-   // Turns an array list of UL elements into html
-   function createHTML(list){
+    // Turns an array list of UL elements into html
+    function createHTML(list){
        html = '';
        for (var i = 0; i < list.length; i++) {
            html += '<li>' + list[i] + '</li>'
        };
        return html
-   }
+    }
 
-   //add the HTML back to the dom tree
-   array_chunks = chunk(li_arr, num_columns);
-   $(this).html(createHTML(array_chunks[0]));
+    //Iterate through each match and apply
+    $(this).each(function () {
 
-   for (i = 1; i < num_columns ;i++) {
-     $(this).after('<ul></ul>').next().html(createHTML(array_chunks[i]));
-   }
+      var li_arr = new Array();
 
- };
+      //Create array of all posts in lists
+      $(this).find('li').each(function(){
+         li_arr.push($(this).html());
+      })
+
+      //add the HTML back to the dom tree
+      array_chunks = chunk(li_arr, num_columns);
+      $(this).html(createHTML(array_chunks[0]));
+
+      for (i = 1; i < num_columns ;i++) {
+       $(this).after('<ul></ul>').next().html(createHTML(array_chunks[i]));
+      }
+    });
+
+  };
 })(jQuery);
-
